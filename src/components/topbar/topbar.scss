@@ -34,6 +34,10 @@
                 align-items: center;
                 margin-left: 30px;
 
+                @include mobile{
+                    display: none;
+                  }
+
             .icon{
                 margin-right: 5px;
                 z-index: 3;
@@ -46,8 +50,8 @@
                 margin-right: 5px;
                 z-index: 3;
                 border-radius: 50%;
-                height: 40px;
-                width: 40px;
+                height: 35px;
+                width: 35px;
                 color: $mainColor;
             }
 
@@ -58,4 +62,45 @@
         }
 
     }
-}
+
+    .right {
+        .hamburger {
+          width: 32px;
+          height: 25px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          cursor: pointer;
+  
+          span {
+            width: 100%;
+            height: 3px;
+            background-color: $mainColor;
+            transform-origin: left;
+            transition: all 2s ease;
+          }
+        }
+      }
+    }
+  
+    .active {
+      background-color: $mainColor;
+      color: white;
+  
+      .hamburger {
+        span {
+          &:first-child {
+            background-color: white;
+            transform: rotate(45deg);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:last-child {
+            background-color: white;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+
