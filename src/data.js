@@ -4,24 +4,32 @@ export const featuredPortfolio = [
       title: "Social Media App",
       img:
         "https://sirrel1.github.io/portfolio-homework/Assets/css/EGGHEAD(Screenshot).png",
+      href: "https://egg-head-blogs.herokuapp.com/" ,
+      git: "https://github.com/SirRel1/the-egghead-blog"
     },
     {
       id: 2,
       title: "Surveys & API's",
       img:
         "https://sirrel1.github.io/portfolio-homework/Assets/css/HeroScope.png",
+      href: "https://marlowchu.github.io/Hero-Site",
+      git: "https://github.com/Marlowchu/Hero-Site/tree/FinalDraft"
     },
     {
       id: 3,
       title: "Coding Quiz App",
       img:
         "https://sirrel1.github.io/portfolio-homework/Assets/css/JSQuiz.png",
+      href: "https://sirrel1.github.io/JavaScript-Coding-Quiz-App/",
+      git: "https://github.com/SirRel1/JavaScript-Coding-Quiz-App"
     },
     {
       id: 4,
       title: "Weather Update App",
       img:
         "https://sirrel1.github.io/portfolio-homework/Assets/css/Weather-Dash-App(Screenshot).png",
+      href:"https://sirrel1.github.io/Weather-Dash/",
+      git: "https://github.com/SirRel1/Weather-Dash"
     },
     
   ];

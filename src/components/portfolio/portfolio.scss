@@ -1,7 +1,7 @@
 @import "../../global.scss";
 
 .portfolio {
-  background-color: white;
+  background-color: rgb(243, 228, 12);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,9 +38,17 @@
       width: 100%;
     }
 
+    .links{
+        position: absolute;
+        display: flex;
+        margin-bottom: -95%;
+        flex-direction: column;
+        color: red;
+    }
+
     .item {
       width: 220px;
-      height: 150px;
+      height: 360px;
       border-radius: 20px;
       border: 1px solid rgb(240, 239, 239);
       margin: 10px 20px;
