@@ -27,7 +27,8 @@ Deployed Site:
 
 ![React-Portfolio(image)](https://user-images.githubusercontent.com/89208706/161327895-d4bb843f-c68f-4ef2-a879-bbfb70712a89.png)
 
-## License This project is licensed under MIT
+## License 
+This project is licensed under MIT
 
 ## Contribution
 Spread the word; submit issues.
