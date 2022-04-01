@@ -15,7 +15,7 @@ export default function Testimonials() {
     {
       id: 2,
       name: "Kelley",
-      title: "TA/Developer",
+      title: "TA / Developer",
       img:
         "https://cdn5.vectorstock.com/i/1000x1000/72/59/female-avatar-profile-icon-round-african-american-vector-18307259.jpg",
       icon: "assets/youtube.png",
