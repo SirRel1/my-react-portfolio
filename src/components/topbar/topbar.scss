@@ -1,106 +1,86 @@
 @import "../../global.scss";
 
-.topbar{
-    width: 100%;
-    height: 70px;
-    background-color: white;
-    color: $mainColor;
-    position: fixed;
-    top: 0;
-    z-index: 2;
+.topbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  border-bottom: 1px solid $line;
+  background: rgba(7, 10, 18, 0.78);
+  backdrop-filter: blur(18px);
 
-    .wrapper{
-        padding: 10px 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  &__inner {
+    width: min(1180px, calc(100% - 40px));
+    height: 76px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-        .left{
-            display: flex;
-            align-items: center;
+  .logo {
+    color: $text;
+    font-size: 1.45rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-decoration: none;
+    span { color: $accent-two; }
+  }
 
-            .logo{
-                font-size: 40px;
-                font-weight: 700;
-                text-decoration: none;
-                color: inherit;
-                margin-right: 42px;
-            }
-        }
-
-        .itemContainer{
-                
-                display: flex;
-                align-items: center;
-                margin-left: 30px;
-
-                @include mobile{
-                    display: none;
-                  }
-
-            .icon{
-                margin-right: 5px;
-                z-index: 3;
-                border-radius: 50%;
-                height: 48px;
-                width: 48px;
-                color: $mainColor;
-            }
-            .icon2{
-                margin-right: 5px;
-                z-index: 3;
-                border-radius: 50%;
-                height: 35px;
-                width: 35px;
-                color: $mainColor;
-            }
-
-            span{
-                font-size: 15px;
-                font-weight: 500;
-            }
-        }
-
+  .desktop-nav {
+    display: flex;
+    gap: 34px;
+    a {
+      color: $muted;
+      font-size: 0.93rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: color 180ms ease;
+      &:hover { color: $text; }
     }
+  }
 
-    .right {
-        .hamburger {
-          width: 32px;
-          height: 25px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          cursor: pointer;
-  
-          span {
-            width: 100%;
-            height: 3px;
-            background-color: $mainColor;
-            transform-origin: left;
-            transition: all 2s ease;
-          }
-        }
-      }
-    }
-  
-    .active {
-      background-color: $mainColor;
-      color: white;
-  
-      .hamburger {
-        span {
-          &:first-child {
-            background-color: white;
-            transform: rotate(45deg);
-          }
-          &:nth-child(2) {
-            opacity: 0;
-          }
-          &:last-child {
-            background-color: white;
-            transform: rotate(-45deg);
-          }
-        }
-      }
-    }
+  &__cta {
+    padding: 11px 18px;
+    border: 1px solid rgba(124, 108, 255, 0.55);
+    border-radius: 999px;
+    background: rgba(124, 108, 255, 0.10);
+    font-size: 0.9rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
 
+  .hamburger {
+    width: 44px;
+    height: 44px;
+    padding: 11px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid $line;
+    border-radius: 12px;
+    color: $text;
+    background: $surface;
+    cursor: pointer;
+    span {
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+      transform-origin: center;
+      transition: 200ms ease;
+    }
+    &.active {
+      span:first-child { transform: translateY(9px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:last-child { transform: translateY(-9px) rotate(-45deg); }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    &__inner { width: calc(100% - 28px); height: 68px; }
+    .desktop-nav, &__cta { display: none; }
+    .hamburger { display: flex; }
+  }
+}

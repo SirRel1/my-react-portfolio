@@ -1,67 +1,41 @@
-import { useState } from "react";
+import Git from "../../assets/images/GitHub-Mark.png";
+import Gmail from "../../assets/images/gmail_icon.png";
+import LinkedIn from "../../assets/images/linked.png";
+import Twitter from "../../assets/images/twitter.png";
+import Resume from "../../assets/images/Terrell D Hudson Resume Update 2022 .pdf";
 import "./contact.scss";
-import Git from "../../assets/images/GitHub-Mark.png"
-import Gmail from "../../assets/images/gmail_icon.png"
-import LinkedIn from "../../assets/images/linked.png"
-import Twitter from "../../assets/images/twitter.png"
+
+const socials = [
+  ["GitHub", "https://github.com/SirRel1", Git],
+  ["LinkedIn", "https://www.linkedin.com/in/terrell-hudson-2574721a2/", LinkedIn],
+  ["Twitter", "https://twitter.com/t_rell26", Twitter],
+  ["Email", "mailto:dajuanhudson33@gmail.com", Gmail],
+];
 
 export default function Contact() {
-  const [message, setMessage] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setMessage(true);
-  };
   return (
-    <div className="contact" id="contact">
-      <div className="left">
-      
-		<div id="contact" class="">
-			<h2>Contact Me:</h2>
-			<div class="getInTouch">
-				<a href="https://twitter.com/t_rell26"
-					><img class="getInTouch" src={Twitter} alt=""
-				/></a>
-			</div>
-			<div class="getInTouch">
-				<a href="https://www.linkedin.com/in/terrell-hudson-2574721a2/"
-					><img class="getInTouch" src={LinkedIn} alt=""
-				/></a>
-			</div>
-			<div class="getInTouch">
-				<a
-					href="https://mail.google.com/mail/?view=cm&source=mailto&to=dajuanhudson33@gmail.com"
-					><img class="getInTouch" src={Gmail} alt=""
-				/></a>
-			</div>
-			<div class="getInTouch">
-				<a href="https://github.com/SirRel1"
-					><img
-						class="getInTouch"
-						src={Git}
-						alt="git hub logo"
-				/></a>
-			</div>
-			<div>
-				<b>My Resume: </b>
-				<a
-					href="./assets/images/Terrell D Hudson Resume Update 2022 .pdf"
-					download="Terrell's Resume"
-					>Download The pdf
-          </a>
-			</div>
-		</div>
+    <section className="contact" id="contact">
+      <div className="contact__panel">
+        <p className="section-kicker">Let's connect</p>
+        <h2>Have an opportunity, idea, or project in mind?</h2>
+        <p>I'm always interested in thoughtful work, collaborative teams, and new challenges.</p>
+        <div className="contact__actions">
+          <a className="contact__primary" href="mailto:dajuanhudson33@gmail.com">Start a conversation ↗</a>
+          <a href={Resume} download="Terrell-Hudson-Resume.pdf">Download resume</a>
+        </div>
+      </div>
 
-      </div>
-      <div className="right">
-        <h2>Contact.</h2>
-        <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Email" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send</button>
-          {message && <span>Thanks, I'll reply ASAP :)</span>}
-        </form>
-      </div>
-    </div>
+      <footer className="contact__footer">
+        <a className="footer-logo" href="#intro">TH<span>.</span></a>
+        <div className="socials">
+          {socials.map(([label, href, icon]) => (
+            <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" aria-label={label}>
+              <img src={icon} alt="" /><span>{label}</span>
+            </a>
+          ))}
+        </div>
+        <p>© {new Date().getFullYear()} Terrell Hudson</p>
+      </footer>
+    </section>
   );
 }

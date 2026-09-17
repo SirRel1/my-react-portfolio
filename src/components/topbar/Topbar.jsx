@@ -1,33 +1,22 @@
-import './topbar.scss';
-import Person from '../../assets/images/black-man-icon.jpg';
-import Email from '../../assets/images/mail-icon.png';
+import "./topbar.scss";
+
+const links = [["Work", "portfolio"], ["About", "works"], ["Testimonials", "testimonials"], ["Contact", "contact"]];
 
 export default function Topbar({ menuOpen, setMenuOpen }) {
-	return (
-		<div className={'topbar ' + (menuOpen && 'active')}>
-			<div className="wrapper">
-				<div className="left">
-					<a href="#intro" className="logo">
-						relic.
-					</a>
-					<div className="itemContainer">
-						<img src={Person} className="icon" />
-						<span>@SirRel1</span>
-					</div>
-					<div className="itemContainer">
-						<img src={Email} className="icon2" />
-						<span>dajuanhudson33@gmail.com</span>
-					</div>
-				</div>
-
-				<div className="right">
-					<div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-						<span className="line1"></span>
-						<span className="line2"></span>
-						<span className="line3"></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <header className="topbar">
+      <div className="topbar__inner">
+        <a href="#intro" className="logo" aria-label="Terrell Hudson home">TH<span>.</span></a>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          {links.map(([label, target]) => <a key={target} href={`#${target}`}>{label}</a>)}
+        </nav>
+        <a className="topbar__cta" href="mailto:dajuanhudson33@gmail.com">Let's talk</a>
+        <button className={`hamburger ${menuOpen ? "active" : ""}`} type="button"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}>
+          <span /><span /><span />
+        </button>
+      </div>
+    </header>
+  );
 }

@@ -1,118 +1,58 @@
 @import "../../global.scss";
 
 .intro {
-  background-color: rgb(177, 185, 219);
-  display: flex;
+  min-height: 100vh;
+  padding-top: 150px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 72px;
 
-  @include mobile{
-    flex-direction: column;
+  &__eyebrow {
+    display: flex;
     align-items: center;
+    gap: 10px;
+    color: $muted;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    span { width: 9px; height: 9px; border-radius: 50%; background: #5ee28a; box-shadow: 0 0 0 5px rgba(94, 226, 138, 0.12); }
   }
 
-  .me{
-      border-radius: 86%;
-      top: -50;
-      height: 90vh;
-      width: 90vw;
+  h1 {
+    margin: 24px 0 22px;
+    max-width: 760px;
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    line-height: 0.97;
+    letter-spacing: -0.065em;
   }
 
-  .left {
-    flex: 0.5;
-    overflow: hidden;
-
-    .imgContainer {
-      width: 600px;
-      height: 600px;
-      background-color: rgb(238, 217, 27);
-      box-shadow: 1px 3px 25px 2px white;
-      border-radius: 50%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      float: right;
-
-      @include mobile{
-        align-items: flex-start;
-      }
-
-      img {
-        height: 90%;
-
-        @include mobile{
-          height: 50%;
-        }
-      }
-    }
+  &__role { margin: 0 0 20px; color: $muted; font-size: clamp(1.1rem, 2vw, 1.5rem); strong { color: $accent-two; } }
+  &__copy { max-width: 610px; color: $muted; font-size: 1.05rem; line-height: 1.8; }
+  &__actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .button {
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 780;
+    text-decoration: none;
+    transition: transform 180ms ease, border-color 180ms ease;
+    &:hover { transform: translateY(-2px); }
+    &--primary { color: #fff; background: linear-gradient(135deg, $accent, #5c4ee5); span { margin-left: 8px; } }
+    &--ghost { border: 1px solid $line; background: rgba(255,255,255,0.025); }
   }
-  .right {
-    flex: 0.5;
-    position: relative;
+  &__meta { margin-top: 42px; display: flex; flex-wrap: wrap; gap: 10px; span { padding: 7px 11px; border: 1px solid $line; border-radius: 999px; color: $muted; font-size: 0.78rem; } }
+  &__visual { position: relative; }
+  &__photo-wrap { position: relative; padding: 14px; border: 1px solid $line; border-radius: 36px; background: linear-gradient(150deg, rgba(255,255,255,0.08), rgba(255,255,255,0.015)); box-shadow: $shadow; transform: rotate(2deg); }
+  &__photo-wrap > img { width: 100%; height: min(620px, 66vh); display: block; border-radius: 26px; object-fit: cover; filter: saturate(0.88) contrast(1.04); }
+  &__badge { position: absolute; right: -20px; bottom: 34px; padding: 14px 18px; display: grid; border: 1px solid $line; border-radius: 16px; background: rgba(16,21,34,0.93); box-shadow: $shadow; transform: rotate(-2deg); strong { font-size: 0.82rem; } span { color: $muted; font-size: 0.76rem; } }
+}
 
-    .wrapper {
-      width: 100%;
-      height: 100%;
-      padding-left: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+@media (max-width: 900px) {
+  .intro { grid-template-columns: 1fr; gap: 50px; padding-top: 125px; h1 { font-size: clamp(3rem, 13vw, 5.5rem); } &__visual { max-width: 580px; } }
+}
 
-      @include mobile{
-        padding-left: 0;
-        align-items: center;
-      }
-
-      h1 {
-        font-size: 60px;
-        margin: 10px 0;
-
-        @include mobile{
-          font-size: 40px;
-        }
-      }
-      h2 {
-        font-size: 35px;
-      }
-      h3 {
-        font-size: 30px;
-
-        @include mobile{
-          font-size: 20px;
-        }
-
-        span {
-          font-size: inherit;
-          color: crimson;
-        }
-
-        .ityped-cursor {
-          animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            50%{
-                opacity: 1;
-            }
-            100%{
-                opacity: 0;
-            }
-        }
-      }
-    }
-    a {
-      position: absolute;
-      bottom: 10px;
-      left: 40%;
-
-      img {
-        width: 30px;
-        animation: arrowBlink 2s infinite;
-      }
-
-      @keyframes arrowBlink {
-        100% {
-          opacity: 0;
-        }
-      }
-    }
-  }
+@media (max-width: 520px) {
+  .intro { &__photo-wrap > img { height: 500px; } &__badge { right: -4px; } }
 }

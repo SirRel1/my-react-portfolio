@@ -1,123 +1,15 @@
 @import "../../global.scss";
 
 .testimonials {
-  background-color: rgb(27, 187, 80);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @include mobile{
-    justify-content: space-around;
-  }
-
-
-  h1 {
-    font-size: 50px;
-
-    @include mobile{
-      font-size: 20px;
-    }
-  }
-
-  .container {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @include mobile{
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .card {
-      width: 250px;
-      height: 70%;
-      border-radius: 10px;
-      box-shadow: 0px 0px 15px -8px black;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      padding: 20px;
-      transition: all 1s ease;
-
-      @include mobile{
-        height: 180px;
-        margin: 10px 0;
-      }
-
-      &.featured{
-          width: 300px;
-          height: 75%;
-          margin: 0 30px;
-
-          @include mobile{
-            width: 250px;
-            height: 180px;
-            margin: 1px;
-          }
-      }
-
-      &:hover{
-          transform: scale(1.1);
-      }
-
-      .top {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        img {
-          &.left,
-          &.right {
-            height: 25px;
-          }
-          &.user {
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 30px;
-
-            @include mobile{
-              width: 30px;
-              height: 30px;
-            }
-          }
-        }
-      }
-
-      .center {
-        padding: 10px;
-        border-radius: 10px;
-        background-color: rgb(250, 244, 245);
-
-        @include mobile{
-          font-size: 12px;
-          padding: 5px;
-        }
-      }
-      .bottom {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-
-        h3 {
-          margin-bottom: 5px;
-
-          @include mobile{
-            font-size: 14px;
-          }
-        }
-        h4{
-            color: rgb(121, 115, 115);
-            @include mobile{
-              font-size: 13px;
-            }
-        }
-      }
-    }
-  }
+  &__grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+  article { min-height: 320px; padding: 28px; display: flex; flex-direction: column; border: 1px solid $line; border-radius: 22px; background: rgba(16,21,34,0.72); }
+  .quote { color: $accent; font-family: Georgia, serif; font-size: 4.5rem; line-height: 0.8; }
+  article > p { color: #d5d9e5; line-height: 1.75; }
+  .reviewer { margin-top: auto; padding-top: 28px; display: flex; align-items: center; gap: 12px; border-top: 1px solid $line; }
+  .avatar { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: linear-gradient(135deg, $accent, #4338ca); font-size: 0.76rem; font-weight: 800; }
+  .reviewer div { display: grid; gap: 3px; }
+  .reviewer strong { font-size: 0.9rem; }
+  .reviewer small { color: $muted; }
 }
+
+@media (max-width: 900px) { .testimonials__grid { grid-template-columns: 1fr; } .testimonials article { min-height: 260px; } }

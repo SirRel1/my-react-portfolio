@@ -1,69 +1,31 @@
-import { useState } from "react";
+import Icon from "../../assets/images/black-man-icon.jpg";
 import "./works.scss";
-import Icon from "../../assets/images/black-man-icon.jpg"
+
+const strengths = [
+  ["01", "Build", "Turning ideas into practical, responsive web experiences."],
+  ["02", "Collaborate", "Bringing team leadership and thoughtful communication to the work."],
+  ["03", "Grow", "Continuously sharpening my MERN stack and software engineering skills."],
+];
 
 export default function Works() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const data = [
-    {
-      id: "1",
-      icon: {Icon},
-      title: "Web Developer",
-      desc:
-        "I am an aspiring Web Developer/ Software Engineer residing in Atlanta Georgia. I'm currently sharpening my MERN Stack skills at Georgia Tech Web Developer Bootcamp. I'm originally from Detroit, Michigan.",
-      img:
-        {Icon},
-    },
-    
-  ];
-
-  const handleClick = (way) => {
-    way === "left"
-      ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : 2)
-      : setCurrentSlide(currentSlide < data.length - 1 ? currentSlide + 1 : 0);
-  };
-  
   return (
-    <div className="works" id="works">
-      <div
-        className="slider"
-        style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
-      >
-        {data.map((d) => (
-          <div className="container">
-            <div className="item">
-              <div className="left">
-                <div className="leftContainer">
-                  <div className="imgContainer">
-                    <img src={Icon} alt="" />
-                  </div>
-                  <h2>{d.title}</h2>
-                  <p>{d.desc}</p>
-                  <span>More to know</span>
-                </div>
-              </div>
-              <div className="right">
-                <img
-                  src="https://sirrel1.github.io/portfolio-homework/css/Me.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
+    <section className="works" id="works">
+      <div className="works__story">
+        <p className="section-kicker">About me</p>
+        <h2 className="section-title">Curious by nature. Grounded by teamwork.</h2>
+        <p className="section-copy">
+          I'm an aspiring web developer and software engineer based in Atlanta, Georgia, originally from Detroit, Michigan. I continue to sharpen my MERN stack skills through hands-on projects and a commitment to learning.
+        </p>
+        <div className="works__identity">
+          <img src={Icon} alt="Terrell Hudson avatar" />
+          <div><strong>Terrell Hudson</strong><span>Web Developer / Software Engineer</span></div>
+        </div>
+      </div>
+      <div className="works__cards">
+        {strengths.map(([number, title, copy]) => (
+          <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>
         ))}
       </div>
-      <img
-        src="assets/arrow.png"
-        className="arrow left"
-        alt=""
-        onClick={() => handleClick("left")}
-      />
-      <img
-        src="assets/arrow.png"
-        className="arrow right"
-        alt=""
-        onClick={() => handleClick()}
-      />
-    </div>
+    </section>
   );
 }

@@ -1,136 +1,18 @@
 @import "../../global.scss";
 
 .works {
-  background-color: crimson;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 90px;
   align-items: center;
-  justify-content: center;
-  position: relative;
-
-  .arrow {
-    height: 50px;
-    position: absolute;
-    cursor: pointer;
-
-    @include mobile {
-      display: none;
-    }
-
-    &.left {
-      left: 100px;
-      transform: rotateY(180deg);
-    }
-
-    &.right {
-      right: 100px;
-    }
-  }
-
-  .slider {
-    height: 350px;
-    display: flex;
-    position: absolute;
-    left: 0;
-    transition: all 1s ease-out;
-
-    @include mobile {
-      height: 100vh;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .container {
-      width: 100vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .item {
-        width: 700px;
-        height: 100%;
-        background-color: white;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        @include mobile {
-          width: 80%;
-          height: 150px;
-          margin: 15px 0;
-        }
-
-        .left {
-          flex: 4;
-          height: 80%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          .leftContainer {
-            width: 90%;
-            height: 70%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            .imgContainer {
-              width: 40px;
-              height: 40px;
-              border-radius: 50%;
-              background-color: rgb(245, 179, 155);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              @include mobile {
-                width: 20px;
-                height: 20px;
-              }
-
-              img {
-                width: 25px;
-
-                @include mobile {
-                  width: 15px;
-                }
-              }
-            }
-            h2 {
-              font-size: 20px;
-
-              @include mobile{
-                font-size: 13px;
-              }
-            }
-            p {
-              font-size: 13px;
-              @include mobile{
-                display: none;
-              }
-            }
-            span {
-              font-size: 12px;
-              font-weight: 600;
-              text-decoration: underline;
-              cursor: pointer;
-            }
-          }
-        }
-        .right {
-          flex: 8;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-
-          img {
-            width: 400px;
-            transform: rotate(-10deg);
-          }
-        }
-      }
-    }
-  }
+  &__story .section-copy { margin-top: 26px; }
+  &__identity { margin-top: 30px; display: flex; align-items: center; gap: 14px; img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; } div { display: grid; gap: 3px; } strong { font-size: 0.92rem; } div span { color: $muted; font-size: 0.78rem; } }
+  &__cards { display: grid; gap: 12px; }
+  &__cards article { padding: 24px; display: grid; grid-template-columns: 52px 120px 1fr; align-items: center; gap: 16px; border: 1px solid $line; border-radius: 18px; background: linear-gradient(125deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015)); }
+  &__cards article > span { color: $accent-two; font-size: 0.76rem; font-weight: 800; }
+  h3 { margin: 0; font-size: 1.15rem; }
+  &__cards p { margin: 0; color: $muted; line-height: 1.55; font-size: 0.9rem; }
 }
+
+@media (max-width: 900px) { .works { grid-template-columns: 1fr; gap: 42px; } }
+@media (max-width: 600px) { .works__cards article { grid-template-columns: 36px 1fr; h3 { grid-column: 2; } p { grid-column: 2; } } }

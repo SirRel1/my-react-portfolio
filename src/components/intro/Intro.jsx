@@ -1,7 +1,7 @@
-import "./intro.scss";
-import { init } from "ityped";
-import Rell from '../../assets/images/rellClimb.jpeg'
 import { useEffect, useRef } from "react";
+import { init } from "ityped";
+import Rell from "../../assets/images/rellClimb.jpeg";
+import "./intro.scss";
 
 export default function Intro() {
   const textRef = useRef();
@@ -9,31 +9,37 @@ export default function Intro() {
   useEffect(() => {
     init(textRef.current, {
       showCursor: true,
-      backDelay: 1500,
-      backSpeed:60,
+      backDelay: 1600,
+      backSpeed: 45,
       strings: ["Developer", "Musician", "Leader"],
     });
   }, []);
 
   return (
-    <div className="intro" id="intro">
-      <div className="left">
-        <div className="imgContainer">
-          <img src={Rell} alt="Pic of Terrell" className="me"/>
+    <section className="intro" id="intro">
+      <div className="intro__content">
+        <p className="intro__eyebrow"><span /> Full-stack developer based in Atlanta</p>
+        <h1>I build useful digital experiences with clarity and care.</h1>
+        <p className="intro__role">I'm Terrell Hudson - a growing <strong ref={textRef} /></p>
+        <p className="intro__copy">
+          I turn ideas into approachable web experiences, combining technical curiosity,
+          collaborative leadership, and a drive to keep learning.
+        </p>
+        <div className="intro__actions">
+          <a className="button button--primary" href="#portfolio">View selected work <span>↗</span></a>
+          <a className="button button--ghost" href="#contact">Get in touch</a>
+        </div>
+        <div className="intro__meta">
+          <span>React</span><span>JavaScript</span><span>Node.js</span><span>MERN</span>
         </div>
       </div>
-      <div className="right">
-        <div className="wrapper">
-          <h2>Hi There, I'm</h2>
-          <h1>Terrell Hudson</h1>
-          <h3>
-            A Growing <span ref={textRef}></span>
-          </h3>
+
+      <div className="intro__visual">
+        <div className="intro__photo-wrap">
+          <img src={Rell} alt="Terrell Hudson climbing outdoors" />
+          <div className="intro__badge"><strong>Open to</strong><span>new opportunities</span></div>
         </div>
-        <a href="#portfolio">
-          <img src="assets/down.png" alt="" />
-        </a>
       </div>
-    </div>
+    </section>
   );
 }

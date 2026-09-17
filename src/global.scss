@@ -1,9 +1,27 @@
-$mainColor: #15023a;
-
+$background: #070a12;
+$surface: #101522;
+$surface-light: #171e2e;
+$text: #f7f8fc;
+$muted: #a8b0c2;
+$accent: #7c6cff;
+$accent-two: #22d3ee;
+$line: rgba(255, 255, 255, 0.10);
+$shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
 $width: 768px;
 
 @mixin mobile {
-    @media (max-width: #{$width}){
-        @content
-    }
+  @media (max-width: #{$width}) { @content; }
 }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: $text;
+  background: $background;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+button, input, textarea { font: inherit; }
+::selection { color: #fff; background: rgba(124, 108, 255, 0.72); }
